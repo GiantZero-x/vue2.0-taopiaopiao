@@ -92,7 +92,7 @@ export default{
             this.loaingLists = this.loaingLists.concat(lists)
             //模拟索引数据的id号
             this.loaingLists.forEach((item, index) => {
-              item.mID = index  
+              item.mID = index
             })
             this.pushComingList({lists: this.loaingLists})
             this.comingLists = this.sortComingData(this.loaingLists)
@@ -117,7 +117,7 @@ export default{
         for (let i = 0; i < comingLists.length; i++) {
           if (item.openTime === comingLists[i].openTime) {
             comingLists[i].movies.push(item)
-            hasItem = true 
+            hasItem = true
             break
           }
         }
@@ -144,11 +144,11 @@ export default{
     })
 
     this.requestData(`/movie/coming/?limit=${this.limit}&offset=${this.offset}`, (response) => {
-      let data = JSON.parse(response.data)
+      let data = response.data
       let lists = data.data.data.returnValue
       //模拟索引数据的id号
       lists.forEach((item, index) => {
-        item.mID = index  
+        item.mID = index
       })
       this.loaingLists = lists
       this.total = data.total
@@ -199,13 +199,13 @@ export default{
 }
 .sel-lists {
   width: 65%;
-  display:-moz-box; 
+  display:-moz-box;
   display: -webkit-box;
   display: box;
 }
 .sel-lists div {
-  -moz-box-flex: 1.0; 
-  -webkit-box-flex: 1.0; 
+  -moz-box-flex: 1.0;
+  -webkit-box-flex: 1.0;
   line-height: 40px;
   text-align: center;
 }
